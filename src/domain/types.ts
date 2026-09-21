@@ -1,0 +1,8 @@
+export type Reliability='CONFIRMÉ'|'À VÉRIFIER'|'HYPOTHÈSE'|'RECOMMANDATION'|'ARBITRAGE NÉCESSAIRE';
+export interface InstanceConfig{INSTANCE_ID:string;INSTANCE_NAME:string;INSTANCE_SCHEMA_VERSION:number;CA_OS_VERSION:string;COMPANY_ID:string;STORAGE_PROVIDER:'local'|'google'|'microsoft';DATA_PROVIDER:'local'|'google'|'microsoft';MAIL_PROVIDER:'none'|'google'|'microsoft';CALENDAR_PROVIDER:'none'|'google'|'microsoft';DOCUMENT_PROVIDER:'local'|'google'|'microsoft';ROOT_FOLDER_ID?:string;DATA_SOURCE_ID?:string;GOOGLE_OAUTH_CLIENT_ID?:string;FEATURES:Record<string,boolean>}
+export interface Affaire{ID_AFFAIRE:string;INSTANCE_ID:string;REFERENCE_AFFAIRE:string;NOM_AFFAIRE:string;CLIENT?:string;ETAT:string;PHASE:string;DATE_CREATION:string;MONTANT?:number;MARGE?:number;AVANCEMENT:number;ENJEUX?:string;RISQUES?:string;PROCHAINE_ECHEANCE?:string;FIABILITE_INFORMATION:Reliability}
+export interface ActionItem{ID_ACTION:string;INSTANCE_ID:string;ID_AFFAIRE:string;TITRE:string;STATUT:'OUVERTE'|'CLOTUREE';PRIORITE:string;DATE_CREATION:string;ECHEANCE?:string}
+export interface Decision{ID_DECISION:string;INSTANCE_ID:string;ID_AFFAIRE:string;SUJET:string;DECISION?:string;STATUT:'A_PRENDRE'|'PRISE';DATE_MODIFICATION:string}
+export interface DocumentRef{DOCUMENT_ID:string;INSTANCE_ID:string;ID_AFFAIRE:string;TITRE:string;PROVIDER:string;PROVIDER_FILE_ID?:string;DOCUMENT_URL?:string;DOCUMENT_LOCATION?:string;MIME_TYPE?:string;VERSION?:string;STATUT:string}
+export interface Contact{ID_CONTACT:string;INSTANCE_ID:string;ID_AFFAIRE:string;NOM:string;EMAIL?:string;TELEPHONE?:string;FONCTION?:string}
+export interface Evenement{ID_EVENEMENT:string;INSTANCE_ID:string;ID_AFFAIRE:string;TYPE:string;TITRE:string;DESCRIPTION?:string;DATE_EVENEMENT:string}

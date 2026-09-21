@@ -1,14 +1,12 @@
-name: CA OS Pages
+name: CA OS Build
 on:
   push:
     branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
-  group: pages
+  group: ca-os-build
   cancel-in-progress: true
 jobs:
   build:
@@ -20,19 +18,8 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npm run build
-      - uses: actions/configure-pages@v5
+      - uses: actions/upload-artifact@v4
         with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
+          name: ca-os-v0.1-dist
           path: ./dist
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if-no-files-found: error

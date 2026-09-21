@@ -1,0 +1,3 @@
+import type { AuditEntry } from '../domain/types.js';
+import type { AuditService, DataService, SequenceService } from './contracts.js';
+export class AuditLogService { constructor(private readonly data:DataService,private readonly seq:SequenceService,private readonly instanceId:string,private readonly userId:string){} async log(what:string,entityType?:string,entityId?:string,why?:string){const AUDIT_ID=await this.seq.next('AUD');const entry:AuditEntry={AUDIT_ID,INSTANCE_ID:this.instanceId,WHAT:what,WHO:this.userId,WHEN:new Date().toISOString(),WHY:why,SOURCE:'CA_OS_APP',ENTITY_TYPE:entityType,ENTITY_ID:entityId,LEVEL:'INFO'};await this.data.create('AUDIT_LOG',entry as unknown as Record<string,unknown>);} }

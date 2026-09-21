@@ -1,9 +1,13 @@
-# SOCLE CA OS V0.1 — État des tests Producteur
+# Tests CA OS V0.1
 
-Dernier build code vérifié : `tsc && vite build` réussi sur GitHub Actions (run 35602013304). Les tests cœur locaux couvrent IDs, affaire, action/clôture, décision, document, contact, événement, persistance et isolation de deux instances.
+Commande CI :
+```bash
+npm install
+npm test
+npm run build
+```
 
-- PASS : 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20.
-- PARTIEL : 01, 02 — build responsive/PWA validé, mais l'URL publique n'est pas encore activée.
-- BLOQUÉ : 03 — OAuth Google nécessite un Client ID Web autorisé.
+`npm test` compile le cœur (`tsconfig.core.json`) puis exécute `tests/core.test.mjs`.
+Les tests couvrent : SequenceService/ID_COUNTERS, CRUD métier minimal, persistance locale, isolation A/B, diagnostic OAuth, SCHEMA_VERSION=2 et présence des champs V2.
 
-Le déploiement GitHub Pages a été tenté : le build a réussi mais l'activation Pages a été refusée à l'intégration (`Resource not accessible by integration`). Aucun hébergement payant n'a été activé.
+Le test navigateur Google complet requiert un OAuth Client ID Web autorisé pour l’URL HTTPS déployée.

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "build-core",
+    "rootDir": "src",
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/domain/**/*.ts",
+    "src/core/**/*.ts",
+    "src/services/**/*.ts",
+    "src/connectors/local/**/*.ts",
+    "src/connectors/google/**/*.ts",
+    "src/connectors/microsoft/**/*.ts",
+    "src/modules/**/*.ts",
+    "src/config/**/*.ts",
+    "src/installer/**/*.ts",
+    "src/migrations/**/*.ts"
+  ],
+  "exclude": ["src/app/**/*.tsx"]
+}

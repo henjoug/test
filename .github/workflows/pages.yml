@@ -16,10 +16,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install
-      - run: npm run build
+      - name: Restore exact corrected source bundle
+        run: |
+          mkdir -p corrected
+          base64 -d artifacts/CA-OS-V0.1-source-corrected.tar.gz.b64 > /tmp/ca-os-v0.1.tar.gz
+          tar -xzf /tmp/ca-os-v0.1.tar.gz -C corrected
+      - name: Install dependencies
+        working-directory: corrected
+        run: npm install
+      - name: Run core tests
+        working-directory: corrected
+        run: npm run test:core
+      - name: Build production
+        working-directory: corrected
+        run: npm run build
       - uses: actions/upload-artifact@v4
         with:
-          name: ca-os-v0.1-dist
-          path: ./dist
+          name: ca-os-v0.1-corrected-dist
+          path: ./corrected/dist
           if-no-files-found: error

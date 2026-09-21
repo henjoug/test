@@ -1,0 +1,1 @@
+export class OutlookConnector{readonly implemented=false} export class MicrosoftCalendarConnector{readonly implemented=false} export class OneDriveConnector{readonly implemented=false} export class SharePointConnector{readonly implemented=false}

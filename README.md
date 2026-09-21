@@ -1,7 +1,9 @@
 # CA OS — Socle V0.1
 
-Premier logiciel exécutable du CA OS : React + TypeScript + Vite + PWA, cœur métier fournisseur-agnostique, services, connecteurs Google, squelettes Microsoft et mode local isolé pour essais.
+CA OS V0.1 est le socle exécutable React + TypeScript + Vite + PWA. Le cœur métier est indépendant du fournisseur de données. Les instances Google sont décrites par un bootstrap de déploiement minimal puis la table `CONFIG` du Google Sheet devient l’autorité après OAuth.
 
-Aucune donnée métier réelle, aucun mot de passe, token, client secret ni secret d’instance ne doit être stocké dans ce dépôt.
+Aucune donnée métier utilisateur, aucun mot de passe, token, client secret ou secret d’instance ne doit être stocké dans ce dépôt.
+
+État : `SCHEMA_VERSION = 2`.
 
 Statut : SOCLE CA OS V0.1 — PRODUIT À CONTRÔLER PAR INSPECTEUR.

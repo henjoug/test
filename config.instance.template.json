@@ -1,0 +1,16 @@
+{
+  "INSTANCE_ID": "INSTANCE-XXX",
+  "INSTANCE_NAME": "Nom instance",
+  "INSTANCE_SCHEMA_VERSION": 1,
+  "CA_OS_VERSION": "0.1.0",
+  "COMPANY_ID": "ORG-000001",
+  "STORAGE_PROVIDER": "google",
+  "DATA_PROVIDER": "google",
+  "MAIL_PROVIDER": "google",
+  "CALENDAR_PROVIDER": "google",
+  "DOCUMENT_PROVIDER": "google",
+  "ROOT_FOLDER_ID": "",
+  "DATA_SOURCE_ID": "",
+  "GOOGLE_OAUTH_CLIENT_ID": "",
+  "FEATURES": {"AFFAIRES":true,"ACTIONS":true,"DECISIONS":true,"DOCUMENTS":true,"CONTACTS":true,"EVENEMENTS":true}
+}
